@@ -89,6 +89,10 @@ public class EditorSortAction extends AnAction {
 
                     //Get the require statement within the namespace declaration
                     int subIndexOfRequire = namespace.indexOf("(:require");
+                    if (subIndexOfRequire == -1) {
+                        return;
+                    }
+
                     int subIndexOfEndRequire = namespace.indexOf(")", subIndexOfRequire) + 1;
                     String requireStmt = namespace.substring(subIndexOfRequire, subIndexOfEndRequire);
 
